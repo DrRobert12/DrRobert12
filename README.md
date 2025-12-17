@@ -40,9 +40,8 @@
   <img src="https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
   <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white" alt="Notion" />
 </p>
-
+<!-- Esto no será visible. 
 <h2 align="center"><u>My Best Works</u></h2>
-
 | Name                  | Description                                                |
 | ---------------------------------|--------------------------------------------------------------- |
 | _[Repository Readme Generator](https://github.com/KasRoudra/repository-readme-generator)_            | Generate a beautiful Readme.md for your repository.             |
@@ -53,7 +52,8 @@
 | _[K-Fuscator](https://github.com/KasRoudra/k-fuscator)_                       | Encrypt or decrypt shell script and compile python scripts       |
 | _[CamHacker](https://github.com/KasRoudra/CamHacker)_                         | Hack anyone's camera with a phishing link.                       |
 | _[Local2Internet](https://github.com/KasRoudra/Local2Internet)_               | Expose locally hosted website into all over internet.            |
-<h4 align="center">All of these are open source!</h4>
+<h4 align="center">All of these are open source!</h4> 
+-->
 
 
 
