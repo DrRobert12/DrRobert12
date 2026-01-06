@@ -623,11 +623,21 @@ body {
     border-bottom-color: var(--terminal-cyan);
 }
 
-/* Architecture Link Styling */
+/* Architecture Link Styling (button styled as link) */
 .architecture-link {
     color: var(--terminal-purple) !important;
     font-weight: 600;
     position: relative;
+    /* Reset button styles */
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
 }
 
 .architecture-link::before {
@@ -647,6 +657,11 @@ body {
 
 .architecture-link:hover {
     border-bottom-color: transparent !important;
+}
+
+.architecture-link:focus-visible {
+    outline: 2px solid var(--terminal-purple);
+    outline-offset: 2px;
 }
 
 /* RESPONSIVE */

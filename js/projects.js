@@ -75,7 +75,7 @@ function renderProjects() {
       .join("");
 
     const architectureLink = project.architecture_diagram
-      ? `<a href="#" class="architecture-link" data-diagram="${project.architecture_diagram}" data-title="${project.title}">[ Architecture.png ]</a>`
+      ? `<button type="button" class="architecture-link" data-diagram="${project.architecture_diagram}" data-title="${project.title}">[ Architecture.png ]</button>`
       : "";
     const demoLink = project.links.demo
       ? `<a href="${project.links.demo}" target="_blank">Ver -> Demo</a>`
