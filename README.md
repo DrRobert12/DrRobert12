@@ -42,9 +42,9 @@
 
 | Projectos | Características claves | Stack | Repositorio |
 | :--- | :--- | :--- | :---: |
-| **🏖️ SaaS Tourism** | SaaS escalable para Logística y Turismo | `Flask` `PostgreSQL` `Vue 3` | [📂 View](https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism) |
-| **📊 CMS Literario & Identidad Digital** | Plataforma inmersiva autogestionable con optimización de medios y SEO. | `Python` `Django 5` `Tailwind Standalone` | [📂 View](https://github.com/DrRobert12/Author-Portal-CMS-Genero-Terror) |
-| **💻 Barcode & QR Code Desktop Generator** | Aplicación de escritorio para la generación y almacenamiento de códigos de barras Code128 y códigos QR a partir de texto ingresado | `Python", "PySide6 (Qt)` | [📂 View](https://github.com/DrRobert12/Creador_BarCode_Qr) |
+| **🏖️ SaaS para Turismo** | SaaS escalable para Logística y Turismo | `Flask` `PostgreSQL` `Vue 3` | [📂 Ver](https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism) |
+| **📊 CMS Literario e Identidad Digital** | Plataforma autogestionable con optimización de medios y SEO. | `Python` `Django 5` `Tailwind Standalone` | [📂 Ver](https://github.com/DrRobert12/Author-Portal-CMS-Genero-Terror) |
+| **💻 Barcode & QR Code Desktop Generator** | Aplicación de escritorio para la generación y almacenamiento de códigos de barras Code128 y códigos QR a partir de texto ingresado | `Python", "PySide6 (Qt)` | [📂 Ver](https://github.com/DrRobert12/Creador_BarCode_Qr) |
 
 ---
 
