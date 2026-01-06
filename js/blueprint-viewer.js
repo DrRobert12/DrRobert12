@@ -1,15 +1,21 @@
-
+/**
+ * Blueprint Viewer Modal
+ * Usa event delegation para funcionar con proyectos renderizados dinámicamente
+ */
 (function() {
     'use strict';
 
-    // Elementos del DOM
+    // Elementos del DOM (estáticos)
     const modal = document.getElementById('blueprintModal');
     const modalTitle = document.getElementById('modalTitle');
     const diagramImage = document.getElementById('diagramImage');
     const closeButton = document.querySelector('.modal-close');
     const backdrop = document.querySelector('.modal-backdrop');
-    const architectureLinks = document.querySelectorAll('.architecture-link');
+    const projectsContainer = document.getElementById('projects');
 
+    /**
+     * Abre el modal con el diagrama especificado
+     */
     function openModal(diagramPath, projectTitle) {
         // Configurar imagen y título
         diagramImage.src = diagramPath;
@@ -42,23 +48,6 @@
     }
 
     /**
-     * Manejador de eventos para los enlaces de arquitectura
-     */
-    function initializeArchitectureLinks() {
-        architectureLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const diagramPath = link.dataset.diagram;
-                const projectTitle = link.dataset.title;
-                
-                if (diagramPath) {
-                    openModal(diagramPath, projectTitle);
-                }
-            });
-        });
-    }
-
-    /**
      * Manejador para cerrar modal con tecla ESC
      */
     function handleEscapeKey(e) {
@@ -77,42 +66,51 @@
     }
 
     /**
-     * Manejador para el botón de cerrar
-     */
-    function handleCloseButton() {
-        closeModal();
-    }
-
-    /**
-     * Prevenir propagación de clics dentro del modal
-     */
-    function preventModalContainerClick(e) {
-        e.stopPropagation();
-    }
-
-    /**
      * Inicializar todos los event listeners
      */
     function init() {
-        // Event listeners para abrir modal
-        initializeArchitectureLinks();
+        // EVENT DELEGATION: Escuchar clicks en el contenedor de proyectos
+        // Esto funciona aunque los proyectos se rendericen después
+        if (projectsContainer) {
+            projectsContainer.addEventListener('click', (e) => {
+                // Buscar si el click fue en un .architecture-link o su hijo
+                const link = e.target.closest('.architecture-link');
+                if (link) {
+                    e.preventDefault();
+                    const diagramPath = link.dataset.diagram;
+                    const projectTitle = link.dataset.title;
+                    
+                    if (diagramPath) {
+                        openModal(diagramPath, projectTitle);
+                    }
+                }
+            });
+        }
 
         // Event listeners para cerrar modal
-        closeButton.addEventListener('click', handleCloseButton);
-        backdrop.addEventListener('click', handleBackdropClick);
+        if (closeButton) {
+            closeButton.addEventListener('click', closeModal);
+        }
+        if (backdrop) {
+            backdrop.addEventListener('click', handleBackdropClick);
+        }
         document.addEventListener('keydown', handleEscapeKey);
 
-        // Prevenir cierre al hacer clic en el contenedor
+        // Prevenir cierre al hacer clic en el contenedor del modal
         const modalContainer = document.querySelector('.modal-container');
-        modalContainer.addEventListener('click', preventModalContainerClick);
+        if (modalContainer) {
+            modalContainer.addEventListener('click', (e) => e.stopPropagation());
+        }
 
         // Manejo de errores de carga de imagen
-        diagramImage.addEventListener('error', () => {
-            console.error('Error al cargar el diagrama');
-            diagramImage.alt = 'Error al cargar el diagrama de arquitectura';
-        });
+        if (diagramImage) {
+            diagramImage.addEventListener('error', () => {
+                console.error('Error al cargar el diagrama');
+                diagramImage.alt = 'Error al cargar el diagrama de arquitectura';
+            });
+        }
 
-        console.log('Blueprint Viewer initialized successfully');
+        console.log('Blueprint Viewer initialized (event delegation)');
     }
 
     // Inicializar cuando el DOM esté listo
