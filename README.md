@@ -44,7 +44,7 @@
 | Project Name | Key Features | Tech Stack | Repository |
 | :--- | :--- | :--- | :---: |
 | **🏖️ SaaS Tourism** | Scalable SaaS for Logistics & Tourism | `Flask` `PostgreSQL` `Vue 3` | [📂 View](https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism) |
-| **📊 CMS Literario & Identidad Digital** | Plataforma inmersiva autogestionable con optimización de medios y SEO. | `Python` `Django 5` `Tailwind Standalone` | [📂 View](https://github.com/tu-usuario/data-analysis) |
+| **📊 CMS Literario & Identidad Digital** | Plataforma inmersiva autogestionable con optimización de medios y SEO. | `Python` `Django 5` `Tailwind Standalone` | [📂 View](https://github.com/DrRobert12/Author-Portal-CMS-Genero-Terror) |
 | **💻 Barcode & QR Code Desktop Generator** | Aplicación de escritorio para la generación y almacenamiento de códigos de barras Code128 y códigos QR a partir de texto ingresado | `Python", "PySide6 (Qt)` | [📂 View](https://github.com/DrRobert12/Creador_BarCode_Qr) |
 
 ---
