@@ -1,33 +1,132 @@
 /**
- * Blueprint Viewer Modal
- * Usa event delegation para funcionar con proyectos renderizados dinámicamente
+ * Screenshot Gallery Modal
+ * Soporta múltiples imágenes por proyecto con navegación
+ * Usa event delegation para proyectos renderizados dinámicamente
  */
-(function() {
+(function () {
     'use strict';
 
     // Elementos del DOM (estáticos)
     const modal = document.getElementById('blueprintModal');
     const modalTitle = document.getElementById('modalTitle');
+    const imageCounter = document.getElementById('imageCounter');
     const diagramImage = document.getElementById('diagramImage');
     const closeButton = document.querySelector('.modal-close');
     const backdrop = document.querySelector('.modal-backdrop');
     const projectsContainer = document.getElementById('projects');
+    const prevButton = document.querySelector('.gallery-prev');
+    const nextButton = document.querySelector('.gallery-next');
+    const dotsContainer = document.getElementById('galleryDots');
+    const captionElement = document.getElementById('galleryCaption');
+
+    // Estado de la galería
+    let currentScreenshots = [];
+    let currentIndex = 0;
+    let projectTitle = '';
 
     /**
-     * Abre el modal con el diagrama especificado
+     * Actualiza la imagen mostrada
      */
-    function openModal(diagramPath, projectTitle) {
-        // Configurar imagen y título
-        diagramImage.src = diagramPath;
-        diagramImage.alt = `Diagrama de arquitectura: ${projectTitle}`;
-        
-        // Extraer nombre del archivo de la ruta
-        const fileName = diagramPath.split('/').pop();
+    function updateImage() {
+        if (currentScreenshots.length === 0) return;
+
+        const screenshot = currentScreenshots[currentIndex];
+        diagramImage.src = screenshot.src;
+        diagramImage.alt = `Screenshot: ${screenshot.caption || projectTitle}`;
+
+        // Actualizar título con nombre del archivo
+        const fileName = screenshot.src.split('/').pop();
         modalTitle.textContent = fileName;
+
+        // Actualizar contador (1/3 formato)
+        if (currentScreenshots.length > 1) {
+            imageCounter.textContent = `(${currentIndex + 1}/${currentScreenshots.length})`;
+        } else {
+            imageCounter.textContent = '';
+        }
+
+        // Actualizar caption
+        captionElement.textContent = screenshot.caption || '';
+
+        // Actualizar dots
+        updateDots();
+
+        // Actualizar estado de botones de navegación
+        updateNavButtons();
+    }
+
+    /**
+     * Actualiza los indicadores (dots)
+     */
+    function updateDots() {
+        if (currentScreenshots.length <= 1) {
+            dotsContainer.innerHTML = '';
+            return;
+        }
+
+        dotsContainer.innerHTML = currentScreenshots.map((_, index) =>
+            `<button class="gallery-dot${index === currentIndex ? ' active' : ''}" 
+                     data-index="${index}" 
+                     aria-label="Ir a imagen ${index + 1}"
+                     title="Imagen ${index + 1}"></button>`
+        ).join('');
+    }
+
+    /**
+     * Actualiza visibilidad de botones prev/next
+     */
+    function updateNavButtons() {
+        const showNav = currentScreenshots.length > 1;
+        prevButton.style.display = showNav ? 'flex' : 'none';
+        nextButton.style.display = showNav ? 'flex' : 'none';
+
+        // Deshabilitar en los extremos (opcional - comentado para loop infinito)
+        // prevButton.disabled = currentIndex === 0;
+        // nextButton.disabled = currentIndex === currentScreenshots.length - 1;
+    }
+
+    /**
+     * Navega a la imagen anterior
+     */
+    function prevImage() {
+        if (currentScreenshots.length <= 1) return;
+        currentIndex = (currentIndex - 1 + currentScreenshots.length) % currentScreenshots.length;
+        updateImage();
+    }
+
+    /**
+     * Navega a la imagen siguiente
+     */
+    function nextImage() {
+        if (currentScreenshots.length <= 1) return;
+        currentIndex = (currentIndex + 1) % currentScreenshots.length;
+        updateImage();
+    }
+
+    /**
+     * Navega a un índice específico
+     */
+    function goToImage(index) {
+        if (index >= 0 && index < currentScreenshots.length) {
+            currentIndex = index;
+            updateImage();
+        }
+    }
+
+    /**
+     * Abre el modal con los screenshots del proyecto
+     */
+    function openModal(screenshots, title) {
+        currentScreenshots = screenshots;
+        currentIndex = 0;
+        projectTitle = title;
 
         // Activar modal
         modal.classList.add('active');
         document.body.classList.add('modal-open');
+
+        // Mostrar primera imagen
+        updateImage();
 
         // Focus en el botón de cerrar para accesibilidad
         setTimeout(() => closeButton.focus(), 100);
@@ -40,19 +139,34 @@
         modal.classList.remove('active');
         document.body.classList.remove('modal-open');
 
-        // Limpiar imagen después de la animación
+        // Limpiar después de la animación (usar placeholder transparente para evitar error)
         setTimeout(() => {
-            diagramImage.src = '';
-            modalTitle.textContent = 'architecture.png';
+            diagramImage.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+            modalTitle.textContent = 'screenshot.png';
+            imageCounter.textContent = '';
+            captionElement.textContent = '';
+            dotsContainer.innerHTML = '';
+            currentScreenshots = [];
+            currentIndex = 0;
         }, 200);
     }
 
     /**
-     * Manejador para cerrar modal con tecla ESC
+     * Manejador de teclas
      */
-    function handleEscapeKey(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
+    function handleKeydown(e) {
+        if (!modal.classList.contains('active')) return;
+
+        switch (e.key) {
+            case 'Escape':
+                closeModal();
+                break;
+            case 'ArrowLeft':
+                prevImage();
+                break;
+            case 'ArrowRight':
+                nextImage();
+                break;
         }
     }
 
@@ -70,19 +184,41 @@
      */
     function init() {
         // EVENT DELEGATION: Escuchar clicks en el contenedor de proyectos
-        // Esto funciona aunque los proyectos se rendericen después
         if (projectsContainer) {
             projectsContainer.addEventListener('click', (e) => {
-                // Buscar si el click fue en un .architecture-link o su hijo
                 const link = e.target.closest('.architecture-link');
                 if (link) {
                     e.preventDefault();
-                    const diagramPath = link.dataset.diagram;
-                    const projectTitle = link.dataset.title;
-                    
-                    if (diagramPath) {
-                        openModal(diagramPath, projectTitle);
+                    const screenshotsData = link.dataset.screenshots;
+                    const title = link.dataset.title;
+
+                    if (screenshotsData) {
+                        try {
+                            const screenshots = JSON.parse(screenshotsData);
+                            openModal(screenshots, title);
+                        } catch (error) {
+                            console.error('Error parsing screenshots data:', error);
+                        }
                     }
+                }
+            });
+        }
+
+        // Botones de navegación
+        if (prevButton) {
+            prevButton.addEventListener('click', prevImage);
+        }
+        if (nextButton) {
+            nextButton.addEventListener('click', nextImage);
+        }
+
+        // Clicks en dots (event delegation)
+        if (dotsContainer) {
+            dotsContainer.addEventListener('click', (e) => {
+                const dot = e.target.closest('.gallery-dot');
+                if (dot) {
+                    const index = parseInt(dot.dataset.index, 10);
+                    goToImage(index);
                 }
             });
         }
@@ -94,7 +230,9 @@
         if (backdrop) {
             backdrop.addEventListener('click', handleBackdropClick);
         }
-        document.addEventListener('keydown', handleEscapeKey);
+
+        // Teclado: ESC, flechas
+        document.addEventListener('keydown', handleKeydown);
 
         // Prevenir cierre al hacer clic en el contenedor del modal
         const modalContainer = document.querySelector('.modal-container');
@@ -102,15 +240,15 @@
             modalContainer.addEventListener('click', (e) => e.stopPropagation());
         }
 
-        // Manejo de errores de carga de imagen
+        // Manejo de errores de carga de imagen (solo si hay src real)
         if (diagramImage) {
             diagramImage.addEventListener('error', () => {
-                console.error('Error al cargar el diagrama');
-                diagramImage.alt = 'Error al cargar el diagrama de arquitectura';
+                // Ignorar error si el src está vacío o es placeholder
+                if (diagramImage.src && !diagramImage.src.startsWith('data:')) {
+                    diagramImage.alt = 'Error al cargar la imagen';
+                }
             });
         }
-
-        console.log('Blueprint Viewer initialized (event delegation)');
     }
 
     // Inicializar cuando el DOM esté listo

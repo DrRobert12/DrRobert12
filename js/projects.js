@@ -1,12 +1,10 @@
-/**
- * Projects Data Array
- */
+
 const PROJECTS = [
   {
     id: "Saas-logistics-tourism",
-    title: "Scalable SaaS for Logistics & Tourism",
+    title: "SaaS escalable para Logística & Turismo",
     short_desc:
-      "Ecosistema modular (Application Factory) para gestión de cupones, con migración SPA en Vue 3 y seguridad de grado industrial.",
+      "Ecosistema modular (Application Factory) para gestión de cupones, con migración SPA en Vue 3.",
     stack: {
       backend: ["Python 3.10+", "Flask", "Argon2id"],
       frontend: ["Vue 3 (Composition API)", "Vanilla CSS", "ApexCharts"],
@@ -20,37 +18,32 @@ const PROJECTS = [
     ],
     technical_challenge:
       "Refactorización de una arquitectura monolítica a un patrón Application Factory, garantizando la integridad financiera mediante snapshots de datos y hashing Argon2id.",
-    architecture_diagram: "img/diagrams/arch_panel.png",
+    // Array de screenshots (nuevo formato)
+    Ver_Proyecto: [
+      { src: "img/screenshots/Login.png", caption: "Login" },
+      { src: "img/screenshots/Sign.png", caption: "Sign Up" },
+      { src: "img/screenshots/Reservas.png", caption: "Reservas" },
+      { src: "img/screenshots/Chek-in_Boletos.png", caption: "Check-in de Boletos" },
+      { src: "img/screenshots/Arquitectura.png", caption: "Panel de arquitectura" },
+    ],
     links: {
       repo: "https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism",
     },
   },
   {
-    id: "portal-autor-terror",
-    title: "CMS Literario & Identidad Digital",
-    short_desc:
-      "Plataforma inmersiva autogestionable con optimización de medios y SEO.",
-    stack: {
-      backend: ["Django 5", "Python"],
-      db: ["PostgreSQL"],
-      infra: ["Tailwind Standalone", "Cloudinary"],
-    },
-    architecture_diagram: "img/diagrams/arch_autor.png",
-    technical_challenge:
-      "Optimización extrema de rendimiento usando 'Tailwind Standalone' y carga diferida de medios. Implementación de Patrón Singleton para garantizar la unicidad del perfil de autor y gestión de contenido Rich Text seguro.",
-    links: {
-      repo: "https://github.com/DrRobert12/Author-Portal-CMS-Genero-Terror",
-    },
-  },
-  {
     id: "creador-barcode-qr",
-    title: "Barcode & QR Code Desktop Generator",
+    title: "Generador de códigos de barras y QR",
     short_desc:
       "Aplicación de escritorio para la generación y almacenamiento de códigos de barras Code128 y códigos QR a partir de texto ingresado por el usuario.",
     stack: {
       backend: ["Python", "PySide6 (Qt)"],
     },
-    architecture_diagram: "img/diagrams/Bar_code_Qr.png",
+    Ver_Proyecto: [
+      { src: "img/screenshots/Bar_code_Qr.png", caption: "Interfaz principal" },
+      { src: "img/screenshots/Generación.png", caption: "Generación de códigos"}, 
+      { src: "img/screenshots/Qr_Generated.png", caption: "Generación de códigos QR"},
+      { src: "img/screenshots/Barcode_Qr_Arq.png", caption: "Panel de arquitectura" },
+    ],
     technical_challenge:
       "Diseño de una aplicación desktop multiplataforma con interfaz gráfica reactiva. Implementación de validaciones de entrada, generación dinámica de códigos Code128 y QR mediante librerías especializadas, renderizado de imágenes en tiempo real y persistencia local en formato PNG utilizando diálogos nativos del sistema.",
     links: {
@@ -58,6 +51,16 @@ const PROJECTS = [
     },
   },
 ];
+
+/**
+ * Obtiene screenshots de un proyecto (con retrocompatibilidad)
+ */
+function getProjectScreenshots(project) {
+  if (project.Ver_Proyecto && project.Ver_Proyecto.length > 0) {
+    return project.Ver_Proyecto;
+  }
+  return [];
+}
 
 /**
  * Renderizamos grid de proyectos
@@ -74,8 +77,11 @@ function renderProjects() {
       .map((db) => `<span class="badge db">${db}</span>`)
       .join("");
 
-    const architectureLink = project.architecture_diagram
-      ? `<button type="button" class="architecture-link" data-diagram="${project.architecture_diagram}" data-title="${project.title}">[ Architecture.png ]</button>`
+    const screenshots = getProjectScreenshots(project);
+    const screenshotsData = JSON.stringify(screenshots).replace(/"/g, '&quot;');
+    
+    const screenshotsLink = screenshots.length > 0
+      ? `<button type="button" class="architecture-link" data-screenshots="${screenshotsData}" data-title="${project.title}">[ Ver Proyecto${screenshots.length > 1 ? ` (${screenshots.length})` : ''} ]</button>`
       : "";
     const demoLink = project.links.demo
       ? `<a href="${project.links.demo}" target="_blank">Ver -> Demo</a>`
@@ -100,7 +106,7 @@ function renderProjects() {
           </div>
 
           <div class="links">
-            ${architectureLink}
+            ${screenshotsLink}
             <a href="${project.links.repo}" target="_blank">Repositorio -> GitHub</a>
             ${demoLink}
           </div>
