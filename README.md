@@ -43,7 +43,7 @@
 | Projectos | Características claves | Stack | Repositorio |
 | :--- | :--- | :--- | :---: |
 | **🏖️ SaaS para Turismo** | SaaS escalable para Logística y Turismo | `Flask` `PostgreSQL` `Vue 3` | [📂 Ver](https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism) |
-| **📊 CMS Literario e Identidad Digital** | Plataforma autogestionable con optimización de medios y SEO. | `Python` `Django 5` `Tailwind Standalone` | [📂 Ver](https://github.com/DrRobert12/Author-Portal-CMS-Genero-Terror) |
+| **🎬 Visor de Anime Desktop y Mobile** | Aplicación de escritorio y Aplicacion Mobile moderna y minimalista para buscar y ver anime, potenciada por Flask y AnimeFLV. | `Python`, `Flask` `HTML, CSS y JS` | [📂 Ver](https://github.com/DrRobert12/Visor_Anime_V1) |
 | **💻 Barcode & QR Code Desktop Generator** | Aplicación de escritorio para la generación y almacenamiento de códigos de barras Code128 y códigos QR a partir de texto ingresado | `Python", "PySide6 (Qt)` | [📂 Ver](https://github.com/DrRobert12/Creador_BarCode_Qr) |
 
 ---
