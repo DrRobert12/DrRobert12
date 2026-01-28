@@ -50,6 +50,35 @@ const PROJECTS = [
       repo: "https://github.com/DrRobert12/Creador_BarCode_Qr.git",
     },
   },
+  {
+    id: "visor-anime",
+    title: "AnimeFree - Streaming Nativo Cross-Platform",
+    short_desc: "Experiencia de streaming nativa (Android) construida con Flutter, respaldada por una API Cloud distribuida en Python.",
+    stack: {
+      backend: ["Python", "Flask REST API", "Render Cloud"],
+      frontend: ["Flutter (Dart)", "Material Design 3"],
+      devops: ["GitHub Actions", "Cron Jobs"]
+    },
+    key_features: [
+      "UX Premium: Interfaz inmersiva 'Netflix-Style' con modo oscuro y transiciones nativas.",
+      "Arquitectura Distribuida: Backend serverless en Render con estrategias de 'Keep-Alive'.",
+      "Playback Avanzado: Reproductor proprietario optimizado para landscape y streaming multi-source."
+    ],
+    technical_challenge:
+      "Desacoplamiento total del frontend y backend mediante API REST. Orquestación de web scraping en tiempo real superando bloqueos anti-bot y garantizando tiempos de respuesta sub-200ms en dispositivos móviles.",
+    Ver_Proyecto: [
+      { src: "img/screenshots/Home_Desktop.png", caption: "Home: Dark Mode" },
+      { src: "img/screenshots/Home_Mobile.png", caption: "Home: Dark Mode" },
+      { src: "img/screenshots/Play_Desktop.png", caption: "Player Nativo" }, 
+      { src: "img/screenshots/Play_Mobile.png", caption: "Player Nativo" },
+      { src: "img/screenshots/Busqueda_Desktop.png", caption: "Búsqueda Instantánea" },
+      { src: "img/screenshots/Busqueda_Mobile.png", caption: "Búsqueda Instantánea" },
+      { src: "img/screenshots/Visor_Arq.png", caption: "Topología Cloud + Mobile" },
+    ],
+    links: {
+      repo: "https://github.com/DrRobert12/Visor_Anime_V1.git", 
+    },
+  },
 ];
 
 /**
