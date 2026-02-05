@@ -5,7 +5,7 @@
     <td width="65%" style="vertical-align: top;">
       <h3>💫 Sobre mí</h3>
       <p>
-        <strong>Backend Developer</strong> especializado en el ecosistema <strong>Python</strong>. Me enfoco en construir aplicaciones web robustas con <strong>Django</strong> y <strong>Flask</strong> preparadas para entornos productivos reales.
+        <strong>Backend Developer</strong> especializado en el ecosistema <strong>Python</strong>. Me enfoco en construir aplicaciones web robustas con <strong>Django</strong> y <strong>FastAPI</strong> preparadas para entornos productivos reales.
       </p>
       <p>
         Mi experiencia incluye el diseño de bases de datos con <strong>PostgreSQL</strong>, sistemas de autenticación jerárquica, automatización de procesos y dashboards operativos. Priorizo la seguridad, la escalabilidad y las decisiones técnicas basadas en datos.
