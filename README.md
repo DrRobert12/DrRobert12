@@ -10,7 +10,7 @@
       <p>
         Mi experiencia incluye el diseño de bases de datos con <strong>PostgreSQL</strong>, sistemas de autenticación jerárquica, automatización de procesos y dashboards operativos. Priorizo la seguridad, la escalabilidad y las decisiones técnicas basadas en datos.
       </p>
-      <p><i>"Si funciona en producción, no fue suerte..."</i></p>
+      <p><i>"Mi Portofolio: https://drrobert12.github.io/DrRobert12/"</i></p>
     </td>
     <td width="35%" align="center">
       <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="100%">
