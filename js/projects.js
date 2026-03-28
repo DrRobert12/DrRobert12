@@ -20,11 +20,11 @@ const PROJECTS = [
       "Refactorización de una arquitectura monolítica a un patrón Application Factory, garantizando la integridad financiera mediante snapshots de datos y hashing Argon2id.",
     // Array de screenshots (nuevo formato)
     Ver_Proyecto: [
-      { src: "img/screenshots/Login.png", caption: "Login" },
-      { src: "img/screenshots/Sign.png", caption: "Sign Up" },
-      { src: "img/screenshots/Reservas.png", caption: "Reservas" },
-      { src: "img/screenshots/Chek-in_Boletos.png", caption: "Check-in de Boletos" },
-      { src: "img/screenshots/Arquitectura.png", caption: "Panel de arquitectura" },
+      { src: "img/screenshots/Saas/Login.png", caption: "Login" },
+      { src: "img/screenshots/Saas/Sign.png", caption: "Sign Up" },
+      { src: "img/screenshots/Saas/Reservas.png", caption: "Reservas" },
+      { src: "img/screenshots/Saas/Chek-in_Boletos.png", caption: "Check-in de Boletos" },
+      { src: "img/screenshots/Saas/Arquitectura.png", caption: "Panel de arquitectura" },
     ],
     links: {
       repo: "https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism",
@@ -39,10 +39,10 @@ const PROJECTS = [
       backend: ["Python", "PySide6 (Qt)"],
     },
     Ver_Proyecto: [
-      { src: "img/screenshots/Bar_code_Qr.png", caption: "Interfaz principal" },
-      { src: "img/screenshots/Generación.png", caption: "Generación de códigos"}, 
-      { src: "img/screenshots/Qr_Generated.png", caption: "Generación de códigos QR"},
-      { src: "img/screenshots/Barcode_Qr_Arq.png", caption: "Panel de arquitectura" },
+      { src: "img/screenshots/Barcode_Qr/Bar_code_Qr.png", caption: "Inicio" },
+      { src: "img/screenshots/Barcode_Qr/Bar_code_Qr/Bar_code_Scann.png", caption: "Interfaz Escaneo" },
+      { src: "img/screenshots/Barcode_Qr/Generación.png", caption: "Generación de códigos"}, 
+      { src: "img/screenshots/Barcode_Qr/Qr_Generated.png", caption: "Generación de códigos QR"},
     ],
     technical_challenge:
       "Diseño de una aplicación desktop multiplataforma con interfaz gráfica reactiva. Implementación de validaciones de entrada, generación dinámica de códigos Code128 y QR mediante librerías especializadas, renderizado de imágenes en tiempo real y persistencia local en formato PNG utilizando diálogos nativos del sistema.",
@@ -67,17 +67,38 @@ const PROJECTS = [
     technical_challenge:
       "Desacoplamiento total del frontend y backend mediante API REST. Orquestación de web scraping en tiempo real superando bloqueos anti-bot y garantizando tiempos de respuesta sub-200ms en dispositivos móviles.",
     Ver_Proyecto: [
-      { src: "img/screenshots/Home_Desktop.png", caption: "Home: Dark Mode" },
-      { src: "img/screenshots/Home_Mobile.png", caption: "Home: Dark Mode" },
-      { src: "img/screenshots/Play_Desktop.png", caption: "Player Nativo" }, 
-      { src: "img/screenshots/Play_Mobile.png", caption: "Player Nativo" },
-      { src: "img/screenshots/Busqueda_Desktop.png", caption: "Búsqueda Instantánea" },
-      { src: "img/screenshots/Busqueda_Mobile.png", caption: "Búsqueda Instantánea" },
+      { src: "img/screenshots/Visor_Anime/Home_Desktop.png", caption: "Home: Dark Mode" },
+      { src: "img/screenshots/Visor_Anime/Home_Mobile.png", caption: "Home: Dark Mode" },
+      { src: "img/screenshots/Visor_Anime/Play_Desktop.png", caption: "Player Nativo" }, 
+      { src: "img/screenshots/Visor_Anime/Play_Mobile.png", caption: "Player Nativo" },
+      { src: "img/screenshots/Visor_Anime/Busqueda_Desktop.png", caption: "Búsqueda Instantánea" },
+      { src: "img/screenshots/Visor_Anime/Busqueda_Mobile.png", caption: "Búsqueda Instantánea" },
       { src: "img/screenshots/Visor_Arq.png", caption: "Topología Cloud + Mobile" },
     ],
     links: {
       repo: "https://github.com/DrRobert12/Visor_Anime_V1.git", 
     },
+    id: "Visor_de_Pelis",
+    title: " VisorPelis - Proxy y Extractor de Streaming Sin Anuncios",
+    short_desc: "Un motor de extracción inteligente basado en navegadores "headless" para evadir publicidad intrusiva y entregar transmisiones de video puras.",
+    stack: {
+      backend: ["Python", "Playwright", "Flask"],
+      devops: ["GitHub Actions"]
+    },
+    technical_challenge:
+      "Desarrollo de un sistema de scraping avanzado utilizando Playwright para navegar por sitios, evadiendo bloqueos anti-bot y filtrando anuncios. Implementación de una API RESTful en Flask para servir transmisiones limpias a clientes frontend, garantizando alta disponibilidad y tiempos de respuesta óptimos.",
+      Ver_Proyecto: [
+        { src: "img/screenshots/Visor_de_Pelis/Home.png", caption: "Interfaz de Usuario" },
+        { src: "img/screenshots/Visor_de_Pelis/Categoria.png", caption: "Categoria 'Accion'" },
+        { src: "img/screenshots/Visor_de_Pelis/Categoria_1.png", caption: "Otra Categoria" },
+        { src: "img/screenshots/Visor_de_Pelis/Busqueda.png", caption: "Búsqueda Instantánea" },
+        { src: "img/screenshots/Visor_de_Pelis/Busqueda_1.png", caption: "Resultados de Búsqueda" },
+        { src: "img/screenshots/Visor_de_Pelis/Reproductor.png", caption: "Eleccion de Reproductor" },
+        { src: "img/screenshots/Visor_de_Pelis/Reproductor_1.png", caption: "Reproduccion de Video-Sin Anuncios-" },
+        { src: "img/screenshots/Visor_de_Pelis/Arquitectura.png", caption: "Arquitectura del Sistema" },
+      ],
+      links: {
+        repo: "https://github.com/DrRobert12/Visor_de_Pelis.git"},
   },
 ];
 
