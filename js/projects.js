@@ -98,7 +98,8 @@ const PROJECTS = [
         { src: "img/screenshots/Visor_de_Pelis/Arquitectura.png", caption: "Arquitectura del Sistema" },
       ],
       links: {
-        repo: "https://github.com/DrRobert12/Visor_de_Pelis.git"},
+      repo: "https://github.com/DrRobert12/Visor_de_Pelis.git",
+    },
   },
 ];
 
