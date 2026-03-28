@@ -20,11 +20,11 @@ const PROJECTS = [
       "Refactorización de una arquitectura monolítica a un patrón Application Factory, garantizando la integridad financiera mediante snapshots de datos y hashing Argon2id.",
     // Array de screenshots (nuevo formato)
     Ver_Proyecto: [
-      { src: "./img/screenshots/Saas/Login.png", caption: "Login" },
-      { src: "./img/screenshots/Saas/Sign.png", caption: "Sign Up" },
-      { src: "./img/screenshots/Saas/Reservas.png", caption: "Reservas" },
-      { src: "./img/screenshots/Saas/Chek-in_Boletos.png", caption: "Check-in de Boletos" },
-      { src: "./img/screenshots/Saas/Arquitectura.png", caption: "Panel de arquitectura" },
+      { src: "./img/screenshots/SaaS/Login.png", caption: "Login" },
+      { src: "./img/screenshots/SaaS/Sign.png", caption: "Sign Up" },
+      { src: "./img/screenshots/SaaS/Reservas.png", caption: "Reservas" },
+      { src: "./img/screenshots/SaaS/Chek-in_Boletos.png", caption: "Check-in de Boletos" },
+      { src: "./img/screenshots/SaaS/Arquitectura.png", caption: "Panel de arquitectura" },
     ],
     links: {
       repo: "https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism",
@@ -39,10 +39,10 @@ const PROJECTS = [
       backend: ["Python", "PySide6 (Qt)"],
     },
     Ver_Proyecto: [
-      { src: "./img/screenshots/Barcode_Qr/Bar_code_Qr.png", caption: "Inicio" },
-      { src: "./img/screenshots/Barcode_Qr/Bar_code_Scann.png", caption: "Interfaz Escaneo" },
-      { src: "./img/screenshots/Barcode_Qr/Generación.png", caption: "Generación de códigos"}, 
-      { src: "./img/screenshots/Barcode_Qr/Qr_Generated.png", caption: "Generación de códigos QR"},
+      { src: "./img/screenshots/BarCode_Qr/Bar_code_Qr.png", caption: "Inicio" },
+      { src: "./img/screenshots/BarCode_Qr/Bar_code_Scann.png", caption: "Interfaz Escaneo" },
+      { src: "./img/screenshots/BarCode_Qr/Generación.png", caption: "Generación de códigos"}, 
+      { src: "./img/screenshots/BarCode_Qr/Qr_Generated.png", caption: "Generación de códigos QR"},
     ],
     technical_challenge:
       "Diseño de una aplicación desktop multiplataforma con interfaz gráfica reactiva. Implementación de validaciones de entrada, generación dinámica de códigos Code128 y QR mediante librerías especializadas, renderizado de imágenes en tiempo real y persistencia local en formato PNG utilizando diálogos nativos del sistema.",
@@ -67,12 +67,12 @@ const PROJECTS = [
     technical_challenge:
       "Desacoplamiento total del frontend y backend mediante API REST. Orquestación de web scraping en tiempo real superando bloqueos anti-bot y garantizando tiempos de respuesta sub-200ms en dispositivos móviles.",
     Ver_Proyecto: [
-      { src: "./img/screenshots/Visor_Anime/Home_Desktop.png", caption: "Home: Dark Mode" },
-      { src: "./img/screenshots/Visor_Anime/Home_Mobile.png", caption: "Home: Dark Mode" },
-      { src: "./img/screenshots/Visor_Anime/Play_Desktop.png", caption: "Player Nativo" }, 
-      { src: "./img/screenshots/Visor_Anime/Play_Mobile.png", caption: "Player Nativo" },
-      { src: "./img/screenshots/Visor_Anime/Busqueda_Desktop.png", caption: "Búsqueda Instantánea" },
-      { src: "./img/screenshots/Visor_Anime/Busqueda_Mobile.png", caption: "Búsqueda Instantánea" },
+      { src: "./img/screenshots/Visor_anime/Home_Desktop.png", caption: "Home: Dark Mode" },
+      { src: "./img/screenshots/Visor_anime/Home_Mobile.png", caption: "Home: Dark Mode" },
+      { src: "./img/screenshots/Visor_anime/Play_Desktop.png", caption: "Player Nativo" }, 
+      { src: "./img/screenshots/Visor_anime/Play_Mobile.png", caption: "Player Nativo" },
+      { src: "./img/screenshots/Visor_anime/Busqueda_Desktop.png", caption: "Búsqueda Instantánea" },
+      { src: "./img/screenshots/Visor_anime/Busqueda_Mobile.png", caption: "Búsqueda Instantánea" },
       { src: "./img/screenshots/Visor_Arq.png", caption: "Topología Cloud + Mobile" },
     ],
     links: {
