@@ -80,7 +80,7 @@ const PROJECTS = [
     },
     id: "Visor_de_Pelis",
     title: " VisorPelis - Proxy y Extractor de Streaming Sin Anuncios",
-    short_desc: "Un motor de extracción inteligente basado en navegadores "headless" para evadir publicidad intrusiva y entregar transmisiones de video puras.",
+    short_desc: "Un motor de extracción inteligente basado en navegadores \"headless\" para evadir publicidad intrusiva y entregar transmisiones de video puras.",
     stack: {
       backend: ["Python", "Playwright", "Flask"],
       devops: ["GitHub Actions"]
