@@ -57,7 +57,7 @@ const PROJECTS = [
     stack: {
       backend: ["Python", "Flask REST API", "Render Cloud"],
       frontend: ["Flutter (Dart)", "Material Design 3"],
-      devops: ["GitHub Actions", "Cron Jobs"]
+      devops: ["GitHub Actions",]
     },
     key_features: [
       "UX Premium: Interfaz inmersiva 'Netflix-Style' con modo oscuro y transiciones nativas.",
@@ -73,7 +73,7 @@ const PROJECTS = [
       { src: "./img/screenshots/Visor_anime/Play_Mobile.png", caption: "Player Nativo" },
       { src: "./img/screenshots/Visor_anime/Busqueda_Desktop.png", caption: "Búsqueda Instantánea" },
       { src: "./img/screenshots/Visor_anime/Busqueda_Mobile.png", caption: "Búsqueda Instantánea" },
-      { src: "./img/screenshots/Visor_Arq.png", caption: "Topología Cloud + Mobile" },
+      { src: "./img/screenshots/Visor_anime/Visor_Arq.png", caption: "Topología Cloud + Mobile" },
     ],
     links: {
       repo: "https://github.com/DrRobert12/Visor_Anime_V1.git", 
@@ -81,11 +81,16 @@ const PROJECTS = [
   },
   {
     id: "Visor_de_Pelis",
-    title: " VisorPelis - Proxy y Extractor de Streaming Sin Anuncios",
+    title: " Visor_de_Pelis - Proxy y Extractor de Streaming Sin Anuncios",
     short_desc: "Un motor de extracción inteligente basado en navegadores \"headless\" para evadir publicidad intrusiva y entregar transmisiones de video puras.",
     stack: {
       backend: ["Python", "Playwright", "Flask"],
-      devops: ["GitHub Actions"]
+      devops: ["GitHub Actions"],
+      key_features: [
+        "Scraping Avanzado: Uso de Playwright para navegar en sitios, evadiendo bloqueos anti-bot y filtrando anuncios.",
+        "API RESTful: Servir transmisiones limpias a clientes frontend con Flask, garantizando alta disponibilidad y tiempos de respuesta óptimos.",
+        "Arquitectura Modular: Separación clara entre scraping, procesamiento y entrega, facilitando mantenimiento y escalabilidad.",
+      ],
     },
     technical_challenge:
       "Desarrollo de un sistema de scraping avanzado utilizando Playwright para navegar por sitios, evadiendo bloqueos anti-bot y filtrando anuncios. Implementación de una API RESTful en Flask para servir transmisiones limpias a clientes frontend, garantizando alta disponibilidad y tiempos de respuesta óptimos.",
@@ -126,8 +131,15 @@ function renderProjects() {
     const backendBadges = (project.stack.backend || [])
       .map((tech) => `<span class="badge backend">${tech}</span>`)
       .join("");
+    const frontendBadges = (project.stack.frontend || [])
+      .map((tech) => `<span class="badge frontend">${tech}</span>`)
+      .join("");
     const dbBadges = (project.stack.db || [])
       .map((db) => `<span class="badge db">${db}</span>`)
+      .join("");
+    const devopsStack = project.stack.devops || project.stack.devops_tools || [];
+    const devopsBadges = devopsStack
+      .map((tech) => `<span class="badge devops">${tech}</span>`)
       .join("");
 
     const screenshots = getProjectScreenshots(project);
@@ -139,6 +151,15 @@ function renderProjects() {
     const demoLink = project.links.demo
       ? `<a href="${project.links.demo}" target="_blank">Ver -> Demo</a>`
       : "";
+      
+    const keyFeaturesHTML = project.key_features && project.key_features.length > 0
+      ? `<div class="key-features">
+          <strong>Key Features:</strong>
+          <ul>
+            ${project.key_features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        </div>`
+      : "";
 
     return `
       <article class="project-card">
@@ -146,12 +167,16 @@ function renderProjects() {
           <h3>${project.title}</h3>
           <div class="tech-stack">
             ${backendBadges}
+            ${frontendBadges}
             ${dbBadges}
+            ${devopsBadges}
           </div>
         </div>
 
         <div class="card-body">
           <p class="desc">${project.short_desc}</p>
+          
+          ${keyFeaturesHTML}
 
           <div class="challenge-box">
             <strong>Technical Challenge:</strong>
