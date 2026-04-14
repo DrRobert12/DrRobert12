@@ -30,6 +30,39 @@ const PROJECTS = [
       repo: "https://github.com/DrRobert12/Scalable-SaaS-for-Logistics-Tourism",
     },
   },
+
+  {
+    id: "Barber_Shift",
+    title: "Barber Shift - Sistema de Gestión de Turnos",
+    short_desc:
+      "Plataforma integral para reserva de citas y gestión de servicios de barbería con roles diferenciados (Admin, Barbero, Cliente).",
+    stack: {
+      backend: ["Python", "FastAPI", "SQLAlchemy", "JWT"],
+      frontend: ["Vue3 (Composition API)", "TailwindCSS", "Vite",],
+      db: ["PostgreSQL"],
+      devops_tools: ["Git", "FastAPI-RESTful", "Docker"],
+    },
+    key_features: [
+      "Sistema RBAC para administradores, barberos y clientes.",
+      "Gestión de disponibilidad y calendario de turnos en tiempo real.",
+      "Notificaciones de confirmación de reservas.",
+      "Perfil de usuario con histórico de servicios.",
+      "Panel administrativo para control de servicios y precios.",
+    ],
+    technical_challenge:
+      "Desarrollo de un sistema de reservas con sincronización de disponibilidad en tiempo real. Implementación de roles y permisos granulares para diferentes tipos de usuarios, asegurando que los turnos no se sobrelapen y manteniendo integridad de datos.",
+    Ver_Proyecto: [
+      { src: "./img/screenshots/Barber_Shift/Dashboard_ModoDark.png", caption: "Dashboard Principal" },
+      { src: "./img/screenshots/Barber_Shift/Calendar.png", caption: "Sistema de Reservas en calendario" },
+      { src: "./img/screenshots/Barber_Shift/Historial_ModoDark.png", caption: "Historial de Servicios" },
+      { src: "./img/screenshots/Barber_Shift/Servicios_ModoDark.png", caption: "Servicios" },
+      { src: "./img/screenshots/Barber_Shift/Horarios.png", caption: "Horarios" },
+    ],
+    links: {
+      repo: "https://github.com/DrRobert12/Barber_Shift",
+    },
+  },
+
   {
     id: "creador-barcode-qr",
     title: "Generador de códigos de barras y QR",
