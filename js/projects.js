@@ -55,7 +55,7 @@ const PROJECTS = [
       { src: "./img/screenshots/Barber_Shift/Dashboard_ModoDark.png", caption: "Dashboard Principal" },
       { src: "./img/screenshots/Barber_Shift/Calendar.png", caption: "Sistema de Reservas en calendario" },
       { src: "./img/screenshots/Barber_Shift/Historial_ModoDark.png", caption: "Historial de Servicios" },
-      { src: "./img/screenshots/Barber_Shift/Servicios_ModoDark.png", caption: "Servicios" },
+      { src: "./img/screenshots/Barber_Shift/Servicios.png", caption: "Servicios" },
       { src: "./img/screenshots/Barber_Shift/Horarios.png", caption: "Horarios" },
     ],
     links: {
